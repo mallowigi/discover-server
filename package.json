@@ -10,17 +10,19 @@
   "private": true,
   "license": "MIT",
   "dependencies": {
-    "koa-static": "latest",
-    "koa": "latest",
-    "koa-jsonp": "latest",
-    "koa-route": "latest",
-    "koa-logger": "latest",
-    "co-views": "latest",
+    "babel-runtime": "^5.1.11",
     "co-body": "latest",
     "co-monk": "latest",
-    "monk": "0.8.0",
+    "co-views": "latest",
+    "ejs": "latest",
+    "koa": "latest",
+    "koa-better-ratelimit": "^2.1.2",
+    "koa-jsonp": "latest",
+    "koa-logger": "latest",
+    "koa-route": "latest",
     "koa-session": "latest",
-    "ejs": "latest"
+    "koa-static": "latest",
+    "monk": "0.8.0"
   },
   "devDependencies": {
     "bower": "latest",
