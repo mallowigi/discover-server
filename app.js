@@ -9,6 +9,7 @@ var koa         = require('koa')
     , serve     = require('koa-static')
     , route     = require('koa-route')
     , sessions  = require('koa-session')
+    , cors      = require('koa-cors')
     , logger    = require('koa-logger')
     , ratelimit = require('koa-better-ratelimit')
     , jsonp     = require('koa-jsonp');
@@ -27,6 +28,7 @@ if ('test' == env) {
     port = 9354;
 }
 
+app.use(cors());
 app.use(logger());
 app.use(jsonp());
 app.use(ratelimit({duration: 1000 * 60 * 3, max: 10, blacklist: []}));
