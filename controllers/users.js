@@ -4,22 +4,29 @@
 var parse = require('co-body'),
     db    = require('../config/db'),
     wrap  = require('co-monk'),
+    User  = require('../models/User'),
     Users = wrap(db.get('users'));
 
 exports.getAllUsers = function *getAllUsers () {
-    yield Users.find({});
+    return yield Users.find({});
 }
 
 exports.createUser = function *createUser (userData) {
-    yield Users.insert(userData);
+    var newUser = new User(userData);
+
+    if (newUser.validate()) {
+        return yield Users.insert(newUser);
+    } else {
+        throw Error("Invalid user data");
+    }
 }
 
 exports.getUser = function *getUser (userId) {
-    yield Users.find({id: userId});
+    return yield Users.find({id: userId});
 }
 
 exports.updateUser = function *updateUser (userId, userData) {
-    yield Users.updateById(userId, userData);
+    return yield Users.updateById(userId, userData);
 }
 
 exports.login = function *login (userData) {

@@ -16,7 +16,7 @@ gulp.task('test', function () {
 });
 
 gulp.task('nodemon', function () {
-  nodemon({ script: 'app.js', env: { 'NODE_ENV': 'development' }, nodeArgs: ['--debug=9999', '--harmony-generators']})
+  nodemon({ script: 'app.js', env: { 'NODE_ENV': 'development' }, nodeArgs: ['--debug=9999', '--harmony']})
     .on('restart');
 });
 

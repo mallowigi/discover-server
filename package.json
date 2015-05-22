@@ -22,6 +22,7 @@
     "koa-route": "latest",
     "koa-session": "latest",
     "koa-static": "latest",
+    "lodash": "^3.9.1",
     "monk": "0.8.0"
   },
   "devDependencies": {

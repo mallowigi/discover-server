@@ -10,10 +10,14 @@ function *getAllUsers () {
 
 function *createUser () {
     var newUser = yield parse(this);
-    this.body = yield *usersCtrl.createUser(newUser);
-    if (this.body) {
+    try {
+        this.body = yield *usersCtrl.createUser(newUser);
         this.status = 201;
+    } catch (e) {
+        this.status = 412;
+        this.response.body = e.toString();
     }
+
 }
 
 function *getUser (userId) {
