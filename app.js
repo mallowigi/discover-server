@@ -23,11 +23,6 @@ var app = module.exports = koa(),
 app.keys = ['place-your-key-here'];
 
 app.use(sessions(app));
-
-if ('test' == env) {
-    port = 9354;
-}
-
 app.use(cors());
 app.use(logger());
 app.use(jsonp());
